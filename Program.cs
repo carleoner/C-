@@ -7,14 +7,22 @@ namespace HelloWorld
 {
   class Program
   {
-    static void MyMethod() 
+    static void MyMethod(string arg = "default") 
     {
-      Console.WriteLine("I just got executed!");
+      Console.WriteLine($"I just got executed! with: {arg}");
     }
+
+    static int MyRetMethod()
+    {
+      return 2;
+    }
+
     static void Main(string[] args)
     {
 
+      MyMethod("halko");
       MyMethod();
+      MyMethod($"{MyRetMethod()}");
 
       Console.WriteLine("Hello Worldsss!");    
       Console.WriteLine(3 + 3);
