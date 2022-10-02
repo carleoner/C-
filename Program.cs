@@ -2,9 +2,41 @@
 //Console.WriteLine("Hello, World!");
 
 using System;
+using System.IO;
 
 namespace HelloWorld
 {
+
+  class Car
+  {
+    private string name; // field
+    public string model = "";
+
+    public string Name   // property
+    {
+      get { return name; }   // get method
+      set { name = value; }  // set method
+    }
+
+    public Car()
+    {
+      model = "constructed";
+      name = "";
+    }
+
+    public Car(string ModelName)
+    {
+      model = ModelName;
+      name = "";
+    }
+  }
+
+  // class Person
+  // {
+  //   public string Name  // property
+  //   { get; set; }
+  // }
+
   class Program
   {
     static void MyMethod(string arg = "default") 
@@ -23,6 +55,30 @@ namespace HelloWorld
       MyMethod("halko");
       MyMethod();
       MyMethod($"{MyRetMethod()}");
+
+      Car myObj = new Car();
+      myObj.Name = "Gustaw";
+      Car myObj1 = new Car("Astra");
+      //myObj.model = "custom";
+      Console.WriteLine("Model: " + myObj.model + " Name: " + myObj.Name + "\nModel 1: " + myObj1.model);
+
+
+      // Person myObjPer = new Person();
+      // myObjPer.Name = "Liam";
+      // Console.WriteLine(myObjPer.Name);
+
+
+      //files
+
+      string writeText = "Hello World!";  // Create a text string
+      File.WriteAllText("filename.txt", writeText);  // Create a file and write the content of writeText to it
+
+      string readText = File.ReadAllText("filename.txt");  // Read the contents of the file
+      Console.WriteLine(readText);  // Output the content
+
+
+
+
 
       Console.WriteLine("Hello Worldsss!");    
       Console.WriteLine(3 + 3);
